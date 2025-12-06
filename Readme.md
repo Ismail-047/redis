@@ -37,13 +37,13 @@ docker run -d --name redis -p 6379:6379 redis
 4. **Seed the Database:**
     Import the sample product data into MongoDB before starting the application:
 ```bash
-    mongoimport --uri "mongodb://localhost:27017/benchmark" --collection products --file products.json --jsonArray
+    mongoimport --uri "mongodb://localhost:27017/redis-cache" --collection products --file products.json --jsonArray
 ```
     
 If using Docker, copy the file into the container first:
 ```bash
     docker cp products.json mongo:/products.json
-    docker exec mongo mongoimport --uri "mongodb://localhost:27017/benchmark" --collection products --file /products.json --jsonArray
+    docker exec mongo mongoimport --uri "mongodb://localhost:27017/redis-cache" --collection products --file /products.json --jsonArray
 ```
 
 ## Running the Application
