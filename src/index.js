@@ -13,6 +13,10 @@ const app = express();
 // MIDDLEWARE
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("<h1>Redis vs MongoDB Caching Benchmark</h1><p>Server is running successfully.</p>");
+})
+
 // ROUTES
 import productRoutes from "./routes/product.routes.js";
 app.use("/api/v1/products", productRoutes);
