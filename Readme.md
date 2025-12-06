@@ -34,21 +34,13 @@ docker run -d --name redis -p 6379:6379 redis
 ```bash
     cp .env.sample .env
 ```
-    
-    Ensure your `.env` file lists the correct connection strings (defaults provided):
-```env
-    PORT=3000
-    MONGODB_URI=mongodb://localhost:27017
-    REDIS_URL=redis://localhost:6379
-```
-
 4. **Seed the Database:**
     Import the sample product data into MongoDB before starting the application:
 ```bash
     mongoimport --uri "mongodb://localhost:27017/benchmark" --collection products --file products.json --jsonArray
 ```
     
-    If using Docker, copy the file into the container first:
+If using Docker, copy the file into the container first:
 ```bash
     docker cp products.json mongo:/products.json
     docker exec mongo mongoimport --uri "mongodb://localhost:27017/benchmark" --collection products --file /products.json --jsonArray
