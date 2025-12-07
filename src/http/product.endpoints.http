@@ -1,0 +1,22 @@
+# DON'T FORGET TO INSTALL httpyac EXTENSION IN VS CODE>
+# Extension Link: https://open-vsx.org/vscode/item?itemName=anweber.vscode-httpyac
+
+
+# ROOT ENDPOINT WITH SERVER STATUS
+GET http://localhost:3000/
+
+
+# GET ALL PRODUCTS FROM MONGODB ON EVERY REQUEST
+GET http://localhost:3000/api/v1/products/get-all-products-without-redis
+
+
+# GET ALL PRODUCTS FROM MONGODB ONCE AND THEN FROM REDIS ON EVERY REQUEST (UNTIL CACHE EXPIRES OR INVALIDATES)
+GET http://localhost:3000/api/v1/products/get-all-products-with-redis
+
+
+# UPDATE PRODUCT NAME AND INVALIDATE CACHE PROGRAMATICALLY
+PATCH http://localhost:3000/api/v1/products/update-product-name/6735bfe150b37a7bf7f3978f
+Content-Type: application/json
+{
+    "name": "Product 1"
+}
